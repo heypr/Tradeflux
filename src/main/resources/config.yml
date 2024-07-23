@@ -1,0 +1,18 @@
+# Tradeflux -- by hyper
+#
+# This is how often the plugin will check if all of the following are true:
+# - if a player is near a villager,
+# - if the villager has a job,
+# - and if the villager has a job site.
+#
+# 1 minute (60 seconds) is the default value.
+brain-task-time: 60
+
+# This is how often the plugin will check if all of the following are true:
+# - if a player is near a villager
+# - if the villager has a job
+# - if the villager's job site exists
+# - and if the villager is unaware (disabled).
+#
+# 5 minutes (600 seconds) is the default value.
+restocking-task-time: 600

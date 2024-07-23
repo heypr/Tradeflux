@@ -1,0 +1,14 @@
+name: Tradeflux
+version: '${version}'
+main: dev.heypr.tradeflux.Tradeflux
+api-version: '1.19'
+prefix: Tradeflux
+authors: [heypr/hyper]
+commands:
+  tradefluxreload:
+    description: Reloads the plugin config.
+    usage: /tradefluxreload
+    permission: tradeflux.reload
+    aliases:
+      - tfr
+      - tfreload
