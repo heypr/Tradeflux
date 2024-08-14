@@ -24,7 +24,7 @@ public class VillagerScanner {
 
     public void startTaskTimer() {
         int simulationDistance = Bukkit.getServer().getSimulationDistance();
-        int scanRadius = simulationDistance * 16;
+        int scanRadius = simulationDistance * 4;
 
         villagerBrainTaskId = new BukkitRunnable() {
             @Override
