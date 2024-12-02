@@ -18,7 +18,6 @@ public class ReloadCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        plugin.getUtil().save();
         plugin.getUtil().reload();
         sender.sendMessage(Component.text("Config reloaded!").color(TextColor.color(144, 238, 144)));
         return true;

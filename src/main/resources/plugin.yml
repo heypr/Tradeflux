@@ -12,3 +12,10 @@ commands:
     aliases:
       - tfr
       - tfreload
+  tradefluxenableallvillagers:
+    description: Enables all villagers.
+    usage: /tradefluxenableallvillagers
+    permission: tradeflux.enableallvillagers
+    aliases:
+      - tfeav
+      - tfeavillagers

@@ -24,7 +24,7 @@ public class VillagerScanner {
 
     public void startTaskTimer() {
         int simulationDistance = Bukkit.getServer().getSimulationDistance();
-        int scanRadius = simulationDistance * 4;
+        int scanRadius = simulationDistance * 8;
 
         villagerBrainTaskId = new BukkitRunnable() {
             @Override
@@ -32,12 +32,7 @@ public class VillagerScanner {
                 for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                     for (Villager villager : player.getWorld().getEntitiesByClass(Villager.class)) {
                         if (villager.getLocation().distance(player.getLocation()) <= scanRadius && villager.getProfession() != Villager.Profession.NONE) {
-                            if (villager.getMemory(MemoryKey.JOB_SITE) != null && villager.getMemory(MemoryKey.JOB_SITE).getBlock().getType() == VillagerProfessionBlocks.valueOf(villager.getProfession().name()).getBlock()) {
-                                villager.setAware(false);
-                            }
-                            else {
-                                villager.setAware(true);
-                            }
+                            villager.setAware(villager.getMemory(MemoryKey.JOB_SITE) == null || villager.getMemory(MemoryKey.JOB_SITE).getBlock().getType() != VillagerProfessionBlocks.valueOf(villager.getProfession().name()).getBlock());
                         }
                     }
                 }
@@ -82,13 +77,5 @@ public class VillagerScanner {
     public void setVillagerRestockingTaskLoopTime(int villagerRestockingTaskLoopTime) {
         // Converts ticks to minutes.
         this.villagerRestockingTaskLoopTime = (villagerRestockingTaskLoopTime * 20);
-    }
-
-    public int getVillagerBrainTaskLoopTime() {
-        return villagerBrainTaskLoopTime;
-    }
-
-    public int getVillagerRestockingTaskLoopTime() {
-        return villagerRestockingTaskLoopTime;
     }
 }
