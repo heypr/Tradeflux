@@ -10,11 +10,11 @@ import org.bukkit.entity.Villager;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
-public class EAVCommand implements CommandExecutor {
+public class DAVCommand implements CommandExecutor {
 
     private final Tradeflux plugin;
 
-    public EAVCommand(Tradeflux plugin) {
+    public DAVCommand(Tradeflux plugin) {
         this.plugin = plugin;
     }
 
@@ -29,7 +29,7 @@ public class EAVCommand implements CommandExecutor {
                 for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                     for (Villager villager : player.getWorld().getEntitiesByClass(Villager.class)) {
                         if (villager.getLocation().distance(player.getLocation()) <= scanRadius && villager.getProfession() != Villager.Profession.NONE && !villager.isAware()) {
-                            villager.setAware(true);
+                            villager.setAware(false);
                         }
                     }
                 }

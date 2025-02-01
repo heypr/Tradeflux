@@ -19,3 +19,10 @@ commands:
     aliases:
       - tfeav
       - tfeavillagers
+  tradefluxdisableallvillagers:
+    description: Disables all villagers.
+    usage: /tradefluxdisableallvillagers
+    permission: tradeflux.disableallvillagers
+    aliases:
+      - tfdav
+      - tfdavillagers

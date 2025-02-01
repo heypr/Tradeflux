@@ -1,5 +1,6 @@
 package dev.heypr.tradeflux;
 
+import dev.heypr.tradeflux.commands.DAVCommand;
 import dev.heypr.tradeflux.commands.EAVCommand;
 import dev.heypr.tradeflux.commands.ReloadCommand;
 import dev.heypr.tradeflux.config.Util;
@@ -11,7 +12,6 @@ public final class Tradeflux extends JavaPlugin {
 
     private static Tradeflux instance;
     private VillagerScanner scanner;
-    private boolean scannerActive = true;
 
     @Override
     public void onEnable() {
@@ -25,6 +25,7 @@ public final class Tradeflux extends JavaPlugin {
         scanner.startTaskTimer();
         registerCommand("tradefluxreload", new ReloadCommand(this));
         registerCommand("tradefluxenableallvillagers", new EAVCommand(this));
+        registerCommand("tradefluxdisableallvillagers", new DAVCommand(this));
     }
 
     @Override
@@ -41,23 +42,11 @@ public final class Tradeflux extends JavaPlugin {
         return instance;
     }
 
-    public void save() {
-        saveConfig();
-    }
-
     public Util getUtil() {
         return new Util();
     }
 
     public VillagerScanner getScanner() {
         return scanner;
-    }
-
-    public boolean isScannerActive() {
-        return scannerActive;
-    }
-
-    public void setScannerActive(boolean scannerActive) {
-        this.scannerActive = scannerActive;
     }
 }
